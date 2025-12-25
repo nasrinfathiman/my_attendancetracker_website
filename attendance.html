@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Mark Attendance for {{ date }}</h2>
+  <form method="get" action="/attendance">
+    <label>Date: <input type="date" name="date" value="{{ date }}"></label>
+    <button type="submit">View</button>
+  </form>
+  <form method="post">
+    <input type="hidden" name="date" value="{{ date }}">
+    <table>
+      <tr><th>Roll</th><th>Name</th><th>Status</th></tr>
+      {% for s in students %}
+        <tr>
+          <td>{{ s.roll_no }}</td>
+          <td>{{ s.name }}</td>
+          <td>
+            <label><input type="radio" name="status_{{ s.student_id }}" value="Present" {% if attendance_map.get(s.student_id)=='Present' %}checked{% endif %}> Present</label>
+            <label><input type="radio" name="status_{{ s.student_id }}" value="Absent" {% if attendance_map.get(s.student_id)=='Absent' or not attendance_map.get(s.student_id) %}checked{% endif %}> Absent</label>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <button type="submit">Save Attendance</button>
+  </form>
+{% endblock %}

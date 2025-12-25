@@ -1,0 +1,10 @@
+body{font-family: Arial, sans-serif; margin:0; padding:0}
+.nav{background:#333;color:#fff;padding:10px}
+.nav a{color:#fff;margin-right:8px;text-decoration:none}
+.container{padding:20px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #ccc;padding:8px}
+.flashes{list-style:none;padding:0}
+.flash{padding:8px;margin-bottom:8px}
+.flash.success{background:#e0ffd8}
+.flash.danger{background:#ffd8d8}
